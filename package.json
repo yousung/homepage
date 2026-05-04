@@ -1,0 +1,14 @@
+{
+  "name": "homepage",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nx run web:dev",
+    "build": "nx run web:build"
+  },
+  "devDependencies": {
+    "@nx/next": "19.8.4",
+    "nx": "19.8.4",
+    "typescript": "^5.4.5"
+  }
+}
