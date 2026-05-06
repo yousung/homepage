@@ -23,7 +23,7 @@ export default function Footer() {
             </a>
             <div className="flex items-center gap-3 text-xs text-gray-500">
               <a
-                href="https://lovizu.com/privacy-policy"
+                href="https://private-document.lovizu.com/"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-white transition-colors"

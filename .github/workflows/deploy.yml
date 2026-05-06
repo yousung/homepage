@@ -40,7 +40,7 @@ jobs:
         run: pnpm --filter @homepage/web build
         env:
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
-          NEXT_PUBLIC_CONTACT_EMAIL: help@lovizu.com
+          NEXT_PUBLIC_CONTACT_EMAIL: support@lovizu.com
 
       - name: Verify static export artifact
         run: |

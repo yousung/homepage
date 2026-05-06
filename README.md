@@ -22,7 +22,7 @@ cp .env.example apps/web/.env.local
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `NEXT_PUBLIC_CONTACT_EMAIL` | `hello@lov.kr` | Contact email shown on the site |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | `support@lovizu.com` | Contact email shown on the site |
 
 ## Scripts
 
