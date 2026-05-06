@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
+import { getContactEmail } from '@/lib/contactEmail';
 
 const schema = z.object({
   name: z.string().min(1, '이름을 입력해주세요').max(100, '이름은 100자 이하여야 합니다'),
@@ -21,6 +22,7 @@ type SubmitState = 'idle' | 'success';
 
 export default function ContactForm() {
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
+  const contactEmail = getContactEmail();
 
   const {
     register,
@@ -32,7 +34,6 @@ export default function ContactForm() {
   });
 
   const onSubmit = (data: FormValues) => {
-    const to = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'hello@example.com';
     const subject = encodeURIComponent(`[Lov 홈페이지 문의] ${data.name}`);
     const bodyLines = [
       `이름: ${data.name}`,
@@ -42,7 +43,7 @@ export default function ContactForm() {
       data.message,
     ].filter((line) => line !== undefined);
     const body = encodeURIComponent(bodyLines.join('\n'));
-    window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
     setSubmitState('success');
     reset();
   };
@@ -152,10 +153,10 @@ export default function ContactForm() {
           </svg>
           메일 앱이 열렸습니다. 메일이 열리지 않으면{' '}
           <a
-            href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'hello@example.com'}`}
+            href={`mailto:${contactEmail}`}
             className="underline font-medium"
           >
-            {process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'hello@example.com'}
+            {contactEmail}
           </a>
           으로 직접 보내주세요.
         </div>

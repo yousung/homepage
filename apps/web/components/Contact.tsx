@@ -1,6 +1,9 @@
 import ContactForm from '@/components/ContactForm';
+import { getContactEmail } from '@/lib/contactEmail';
 
 export default function Contact() {
+  const contactEmail = getContactEmail();
+
   return (
     <section id="contact" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,10 +33,10 @@ export default function Contact() {
                 <div>
                   <p className="text-xs text-gray-500 mb-0.5">이메일</p>
                   <a
-                    href="mailto:hello@lov.kr"
+                    href={`mailto:${contactEmail}`}
                     className="text-sm font-medium text-gray-900 hover:text-blue-700 transition-colors"
                   >
-                    hello@lov.kr
+                    {contactEmail}
                   </a>
                 </div>
               </div>
