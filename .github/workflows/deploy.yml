@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,8 +39,15 @@ jobs:
       - name: Build
         run: pnpm --filter @homepage/web build
         env:
-          NEXT_PUBLIC_BASE_PATH: /homepage
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
           NEXT_PUBLIC_CONTACT_EMAIL: nug22kr@gmail.com
+
+      - name: Verify static export artifact
+        run: |
+          test -d apps/web/out || { echo "Missing apps/web/out"; exit 1; }
+          test -f apps/web/out/index.html || { echo "Missing apps/web/out/index.html"; exit 1; }
+          echo "Export root files:"
+          ls -la apps/web/out | sed -n '1,40p'
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -56,8 +64,13 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Deployment summary
+        run: |
+          echo "Pages URL: ${{ steps.deployment.outputs.page_url }}"
