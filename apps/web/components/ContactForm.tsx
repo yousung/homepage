@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { getContactEmail } from '@/lib/contactEmail';
 
 const schema = z.object({
   name: z.string().min(1, '이름을 입력해주세요').max(100, '이름은 100자 이하여야 합니다'),
@@ -20,9 +19,12 @@ type FormValues = z.infer<typeof schema>;
 
 type SubmitState = 'idle' | 'success';
 
-export default function ContactForm() {
+type ContactFormProps = {
+  contactEmail: string;
+};
+
+export default function ContactForm({ contactEmail }: ContactFormProps) {
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
-  const contactEmail = getContactEmail();
 
   const {
     register,
