@@ -9,18 +9,27 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <span className="text-2xl font-bold text-white tracking-tight">Lov</span>
+            <span className="text-2xl font-bold text-white tracking-tight">Lovizu</span>
             <p className="mt-1 text-sm">사랑과 비주얼의 교차점</p>
           </div>
 
-          <div className="flex flex-col items-center gap-1 text-sm">
-            <p>© {currentYear} Lov. All rights reserved.</p>
+          <div className="flex flex-col items-center gap-2 text-sm">
+            <p>© {currentYear} Lovizu. All rights reserved.</p>
             <a
               href={`mailto:${contactEmail}`}
               className="text-gray-500 hover:text-white transition-colors"
             >
               {contactEmail}
             </a>
+            <div className="flex items-center gap-3 text-xs text-gray-500">
+              <a href="/privacy" className="hover:text-white transition-colors">
+                개인정보처리방침
+              </a>
+              <span aria-hidden="true">|</span>
+              <a href="/terms" className="hover:text-white transition-colors">
+                이용약관
+              </a>
+            </div>
           </div>
 
           <nav aria-label="Footer navigation">

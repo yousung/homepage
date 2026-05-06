@@ -36,7 +36,7 @@ export default function ContactForm({ contactEmail }: ContactFormProps) {
   });
 
   const onSubmit = (data: FormValues) => {
-    const subject = encodeURIComponent(`[Lov 홈페이지 문의] ${data.name}`);
+    const subject = encodeURIComponent(`[Lovizu 홈페이지 문의] ${data.name}`);
     const bodyLines = [
       `이름: ${data.name}`,
       `이메일: ${data.email}`,
