@@ -22,7 +22,12 @@ export default function Footer() {
               {contactEmail}
             </a>
             <div className="flex items-center gap-3 text-xs text-gray-500">
-              <a href="/privacy" className="hover:text-white transition-colors">
+              <a
+                href="https://private-document.lovizu.com/"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-white transition-colors"
+              >
                 개인정보처리방침
               </a>
               <span aria-hidden="true">|</span>

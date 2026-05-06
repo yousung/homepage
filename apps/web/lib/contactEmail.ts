@@ -1,5 +1,5 @@
-const DEFAULT_CONTACT_EMAIL = 'hello@example.com';
+const DEFAULT_CONTACT_EMAIL = 'support@lovizu.com';
 
 export function getContactEmail(): string {
-  return process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? DEFAULT_CONTACT_EMAIL;
+  return DEFAULT_CONTACT_EMAIL;
 }

@@ -168,7 +168,7 @@ export default function ContactForm({ contactEmail }: ContactFormProps) {
         type="submit"
         className="w-full py-4 bg-blue-900 text-white font-semibold rounded-xl hover:bg-blue-800 transition-colors flex items-center justify-center gap-2"
       >
-        문의 보내기
+        상담 요청하기
       </button>
     </form>
   );
