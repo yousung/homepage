@@ -45,7 +45,7 @@ export default function About() {
           {/* Text */}
           <div>
             <p className="text-sm font-semibold text-blue-600 uppercase tracking-widest mb-3">
-              About Lov
+              About Lovizu
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 leading-tight">
               함께 성장하는
@@ -53,7 +53,7 @@ export default function About() {
               IT 파트너십
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Lov는 기술과 창의성의 결합으로 고객의 비즈니스 가치를 높이는 데 집중합니다.
+              Lovizu는 기술과 창의성의 결합으로 고객의 비즈니스 가치를 높이는 데 집중합니다.
               단순한 개발을 넘어, 전략적 파트너로서 여러분의 성장을 함께 그려갑니다.
             </p>
             <p className="text-gray-600 leading-relaxed">

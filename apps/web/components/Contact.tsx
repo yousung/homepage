@@ -1,4 +1,3 @@
-import ContactForm from '@/components/ContactForm';
 import { getContactEmail } from '@/lib/contactEmail';
 
 export default function Contact() {
@@ -20,7 +19,7 @@ export default function Contact() {
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-10">
               어떤 아이디어든 환영합니다. 간단한 문의부터 시작해보세요.
-              Lov 팀이 24시간 내로 답변드립니다.
+              Lovizu 팀이 24시간 내로 답변드립니다.
             </p>
 
             <div className="space-y-4">
@@ -56,9 +55,18 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Form */}
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-            <ContactForm contactEmail={contactEmail} />
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">문의 방법</h3>
+            <p className="text-sm text-gray-600 leading-relaxed mb-6">
+              현재 홈페이지에서는 문의 폼을 운영하지 않습니다. 아래 이메일로 문의 내용을 보내주시면
+              순차적으로 답변드립니다.
+            </p>
+            <a
+              href={`mailto:${contactEmail}`}
+              className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-blue-900 text-white text-sm font-semibold hover:bg-blue-800 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/40"
+            >
+              {contactEmail}
+            </a>
           </div>
         </div>
       </div>

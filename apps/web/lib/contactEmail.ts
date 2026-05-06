@@ -1,4 +1,4 @@
-const DEFAULT_CONTACT_EMAIL = 'support@lovizu.com';
+const DEFAULT_CONTACT_EMAIL = 'help@lovizu.com';
 
 export function getContactEmail(): string {
   return DEFAULT_CONTACT_EMAIL;

@@ -23,7 +23,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Lov는 깊이 있는 IT 솔루션으로 고객의 성장을 함께 그려가는 파트너입니다
+          Lovizu는 깊이 있는 IT 솔루션으로 고객의 성장을 함께 그려가는 파트너입니다
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
