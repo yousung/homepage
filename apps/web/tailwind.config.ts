@@ -8,17 +8,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy: {
-          50: '#f0f4ff',
-          100: '#e0e7ff',
-          600: '#1e3a8a',
-          700: '#1e3358',
-          800: '#172554',
-          900: '#0f172a',
+        brand: {
+          primary: '#0D1B2A',
+          secondary: '#1E3A5F',
+          accent: '#4F46E5',
+          'accent-hover': '#4338CA',
+          bg: '#F8FAFC',
+          text: '#0F172A',
+          'text-muted': '#475569',
+          border: '#E2E8F0',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'Pretendard', 'system-ui', 'sans-serif'],
+        sans: ['Pretendard', 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },

@@ -13,49 +13,41 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-2xl font-bold text-blue-900 tracking-tight">
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-brand-border bg-white/90 shadow-sm backdrop-blur-sm">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          <a href="#" className="text-2xl font-bold tracking-tight text-brand-primary">
             Lovizu
           </a>
 
-          {/* Desktop menu */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden items-center gap-8 md:flex">
             {links.map((link) => (
               <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-sm font-medium text-gray-600 hover:text-blue-900 transition-colors"
-                >
+                <a href={link.href} className="text-sm font-medium text-brand-text-muted transition-colors hover:text-brand-primary">
                   {link.label}
                 </a>
               </li>
             ))}
             <li>
-              <a
-                href="#contact"
-                className="px-4 py-2 bg-blue-900 text-white text-sm font-semibold rounded-lg hover:bg-blue-800 transition-colors"
-              >
+              <a href="#contact" className="rounded-lg bg-brand-accent px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-accent-hover">
                 문의하기
               </a>
             </li>
           </ul>
 
-          {/* Mobile hamburger */}
           <button
             type="button"
-            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100"
+            className="rounded-lg p-2 text-brand-text-muted hover:bg-brand-bg md:hidden"
             aria-label="메뉴 열기"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             {open ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -63,15 +55,14 @@ export default function Nav() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-gray-100 bg-white">
-          <ul className="px-4 py-3 space-y-1">
+        <div className="border-t border-brand-border bg-white md:hidden">
+          <ul className="space-y-1 px-4 py-3">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded-lg"
+                  className="block rounded-lg px-3 py-2 text-sm font-medium text-brand-text-muted hover:bg-brand-bg"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
@@ -81,7 +72,7 @@ export default function Nav() {
             <li className="pt-2">
               <a
                 href="#contact"
-                className="block px-3 py-2 text-sm font-semibold text-white bg-blue-900 rounded-lg text-center hover:bg-blue-800"
+                className="block rounded-lg bg-brand-accent px-3 py-2 text-center text-sm font-semibold text-white hover:bg-brand-accent-hover"
                 onClick={() => setOpen(false)}
               >
                 문의하기

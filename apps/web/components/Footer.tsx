@@ -1,37 +1,31 @@
 import { getContactEmail } from '@/lib/contactEmail';
+
 const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   const contactEmail = getContactEmail();
 
   return (
-    <footer className="bg-gray-900 text-gray-400 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="bg-brand-primary py-12 text-white/80">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div>
-            <span className="text-2xl font-bold text-white tracking-tight">Lovizu</span>
-            <p className="mt-1 text-sm">사랑과 비주얼의 교차점</p>
+            <span className="text-2xl font-bold tracking-tight text-white">Lovizu</span>
+            <p className="mt-1 text-sm">기술에 진심인 팀</p>
+            <p className="mt-1 text-xs text-white/65">개발 · UI/UX · IT 컨설팅</p>
           </div>
 
           <div className="flex flex-col items-center gap-2 text-sm">
             <p>© {currentYear} Lovizu. All rights reserved.</p>
-            <a
-              href={`mailto:${contactEmail}`}
-              className="text-gray-500 hover:text-white transition-colors"
-            >
+            <a href={`mailto:${contactEmail}`} className="text-white/70 transition-colors hover:text-white">
               {contactEmail}
             </a>
-            <div className="flex items-center gap-3 text-xs text-gray-500">
-              <a
-                href="https://lovizu.com/privacy-policy"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-white transition-colors"
-              >
+            <div className="flex items-center gap-3 text-xs text-white/60">
+              <a href="/privacy" className="transition-colors hover:text-white">
                 개인정보처리방침
               </a>
               <span aria-hidden="true">|</span>
-              <a href="/terms" className="hover:text-white transition-colors">
+              <a href="/terms" className="transition-colors hover:text-white">
                 이용약관
               </a>
             </div>
@@ -43,7 +37,7 @@ export default function Footer() {
                 const hrefs = ['#about', '#services', '#portfolio', '#contact'];
                 return (
                   <li key={label}>
-                    <a href={hrefs[i]} className="hover:text-white transition-colors">
+                    <a href={hrefs[i]} className="transition-colors hover:text-white">
                       {label}
                     </a>
                   </li>

@@ -10,10 +10,10 @@ export default function PrivacyPage() {
   const contactEmail = getContactEmail();
 
   return (
-    <main className="min-h-screen bg-gray-50 py-16">
-      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">개인정보처리방침</h1>
-        <div className="space-y-6 text-gray-700 leading-relaxed">
+    <main className="min-h-screen bg-brand-bg py-16">
+      <section className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <h1 className="mb-8 text-3xl font-bold text-brand-text">개인정보처리방침</h1>
+        <div className="space-y-6 leading-relaxed text-brand-text-muted">
           <p>
             Lovizu(이하 회사)는 문의 응대를 위해 사용자가 직접 입력한 이름, 이메일, 메시지를
             메일 클라이언트를 통해 수신합니다.
@@ -26,11 +26,11 @@ export default function PrivacyPage() {
             개인정보 관련 문의는 아래 이메일로 요청하실 수 있습니다.
             <br />
             문의:{' '}
-            <a className="text-blue-700 underline" href={`mailto:${contactEmail}`}>
+            <a className="text-brand-accent underline" href={`mailto:${contactEmail}`}>
               {contactEmail}
             </a>
           </p>
-          <p className="text-sm text-gray-500">시행일: 2026년 5월 7일</p>
+          <p className="text-sm text-brand-text-muted">시행일: 2026년 5월 7일</p>
         </div>
       </section>
     </main>
