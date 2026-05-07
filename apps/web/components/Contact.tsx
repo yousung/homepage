@@ -5,8 +5,8 @@ export default function Contact() {
 
   return (
     <section id="contact" className="bg-brand-bg py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-start gap-16 lg:grid-cols-2">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
           <div>
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-accent">Contact</p>
             <h2 className="mb-6 text-3xl font-bold text-brand-text sm:text-4xl">
@@ -18,7 +18,7 @@ export default function Contact() {
               어떤 아이디어든 환영합니다. 간단한 문의부터 시작해보세요. Lovizu 팀이 24시간 내로 답변드립니다.
             </p>
 
-            <div className="space-y-4">
+            <div className="mx-auto max-w-md space-y-4 text-left">
               <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-primary/10 text-brand-primary">
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,19 +46,6 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="rounded-2xl border border-brand-border bg-white p-8 shadow-sm">
-            <h3 className="mb-4 text-xl font-semibold text-brand-text">문의 방법</h3>
-            <p className="mb-6 text-sm leading-relaxed text-brand-text-muted">
-              현재 홈페이지에서는 문의 폼을 운영하지 않습니다. 아래 이메일로 문의 내용을 보내주시면 순차적으로 답변드립니다.
-            </p>
-            <a
-              href={`mailto:${contactEmail}`}
-              className="inline-flex items-center justify-center rounded-xl bg-brand-accent px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/40"
-            >
-              {contactEmail}
-            </a>
           </div>
         </div>
       </div>
