@@ -1,6 +1,6 @@
 # GitHub Pages CI Contract
 
-This repository deploys static output to GitHub Pages from the `main` branch using `.github/workflows/deploy.yml`.
+This repository deploys static output to GitHub Pages from the `master` branch using `.github/workflows/deploy.yml`.
 
 ## Frontend Build Contract
 
