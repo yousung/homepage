@@ -22,7 +22,7 @@ export default function Hero() {
         </h1>
 
         <p className="mx-auto mb-10 max-w-3xl text-base leading-relaxed text-white/85 sm:text-lg">
-          Lov는 개발, UI/UX 디자인, IT 컨설팅을 직접 수행하는 팀입니다.
+          Lovizu는 개발, UI/UX 디자인, IT 컨설팅을 직접 수행하는 팀입니다.
           요구사항을 받아 만드는 것이 아니라, 비즈니스 문제를 먼저 파악하고 기술적 방향을
           제안합니다. 런칭이 끝이 아닌, 지속 가능한 운영까지 책임집니다.
         </p>

@@ -55,12 +55,12 @@ export default function About() {
             IT 파트너십
           </h2>
           <p className="mb-6 text-lg leading-relaxed text-brand-text-muted">
-            Lov는 기술이 비즈니스의 실질적인 성장 도구가 되어야 한다고 믿습니다. 화려한 설계보다
+            Lovizu는 기술이 비즈니스의 실질적인 성장 도구가 되어야 한다고 믿습니다. 화려한 설계보다
             견고한 구현을, 빠른 납품보다 정확한 진단을 우선합니다.
           </p>
           <p className="leading-relaxed text-brand-text-muted">
             클라이언트의 산업과 목표를 깊이 이해한 후 개발에 착수하는 것이 우리의 원칙입니다.
-            파트너와 함께 성장하는 IT, 그것이 Lov의 방식입니다.
+            파트너와 함께 성장하는 IT, 그것이 Lovizu의 방식입니다.
           </p>
         </div>
 
