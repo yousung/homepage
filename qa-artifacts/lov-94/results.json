@@ -1,0 +1,82 @@
+[
+  {
+    "viewport": "desktop",
+    "firstRender": {
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://yousung.github.io/homepage/",
+      "title": "Lovizu — IT 솔루션 파트너"
+    },
+    "anchors": [
+      {
+        "label": "소개",
+        "expected": "#about",
+        "actual": "#about",
+        "pass": true
+      },
+      {
+        "label": "서비스",
+        "expected": "#services",
+        "actual": "#services",
+        "pass": true
+      },
+      {
+        "label": "포트폴리오",
+        "expected": "#portfolio",
+        "actual": "#portfolio",
+        "pass": true
+      },
+      {
+        "label": "연락하기",
+        "expected": "#contact",
+        "actual": "#contact",
+        "pass": true
+      }
+    ],
+    "mailto": {
+      "href": "mailto:support@lovizu.com",
+      "pass": true
+    },
+    "consoleErrors": []
+  },
+  {
+    "viewport": "mobile",
+    "firstRender": {
+      "ok": true,
+      "status": 200,
+      "finalUrl": "https://yousung.github.io/homepage/",
+      "title": "Lovizu — IT 솔루션 파트너"
+    },
+    "anchors": [
+      {
+        "label": "소개",
+        "expected": "#about",
+        "actual": "#about",
+        "pass": true
+      },
+      {
+        "label": "서비스",
+        "expected": "#services",
+        "actual": "#services",
+        "pass": true
+      },
+      {
+        "label": "포트폴리오",
+        "expected": "#portfolio",
+        "actual": "#portfolio",
+        "pass": true
+      },
+      {
+        "label": "연락하기",
+        "expected": "#contact",
+        "actual": "#contact",
+        "pass": true
+      }
+    ],
+    "mailto": {
+      "href": "mailto:support@lovizu.com",
+      "pass": true
+    },
+    "consoleErrors": []
+  }
+]

@@ -7,7 +7,7 @@ This repository deploys static output to GitHub Pages from the `master` branch u
 - Build command: `pnpm --filter @homepage/web build`
 - Required output directory: `apps/web/out`
 - Required output file: `apps/web/out/index.html`
-- Production base path source: `NEXT_PUBLIC_BASE_PATH=/${{ github.event.repository.name }}`
+- Production base path source: `NEXT_PUBLIC_BASE_PATH` (optional; set to blank for custom domain)
 
 ## Failure Diagnostics
 
