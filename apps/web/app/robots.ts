@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://yousung.github.io/homepage/sitemap.xml',
+    sitemap: 'https://www.lovizu.com/sitemap.xml',
   };
 }

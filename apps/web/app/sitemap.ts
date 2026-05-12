@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const siteUrl = 'https://yousung.github.io/homepage';
+const siteUrl = 'https://www.lovizu.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

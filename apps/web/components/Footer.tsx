@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getContactEmail } from '@/lib/contactEmail';
 
 const currentYear = new Date().getFullYear();
@@ -21,13 +22,13 @@ export default function Footer() {
               {contactEmail}
             </a>
             <div className="flex items-center gap-3 text-xs text-white/60">
-              <a href="/privacy-policy" className="transition-colors hover:text-white">
+              <Link href="/privacy-policy" className="transition-colors hover:text-white">
                 개인정보처리방침
-              </a>
+              </Link>
               <span aria-hidden="true">|</span>
-              <a href="/terms" className="transition-colors hover:text-white">
+              <Link href="/terms" className="transition-colors hover:text-white">
                 이용약관
-              </a>
+              </Link>
             </div>
           </div>
 
