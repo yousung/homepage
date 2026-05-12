@@ -26,6 +26,7 @@ const projects: Project[] = [
       '포장자동화·공장자동화 전문 제조사 공식 웹사이트. 스틱·로터리·버티컬 포장기계 등 제품 카탈로그를 직관적으로 탐색하고, 네이버 스토어 연동과 AS 안내까지 원스톱으로 제공합니다.',
     tech: ['웹사이트', '제품 카탈로그', 'CDN'],
     accent: 'bg-brand-secondary',
+    image: '/portfolio/tcpack.jpg',
     link: 'https://tcpack.co.kr/',
   },
   {
@@ -35,6 +36,7 @@ const projects: Project[] = [
       '서진캠(SECO)의 창고 운영과 재고 관리를 위한 전용 웹 플랫폼. 사용자 인증과 대시보드 기반으로 데이터를 실시간으로 관리합니다.',
     tech: ['웹 앱', '관리 시스템', '인증'],
     accent: 'bg-brand-accent',
+    image: '/portfolio/seojincam.jpg',
     link: 'https://wh.seojincam.com',
   },
 ];
