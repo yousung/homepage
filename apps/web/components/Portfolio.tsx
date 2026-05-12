@@ -24,7 +24,7 @@ const projects: Project[] = [
     title: '신라면세점 — DFS 통합 커머스',
     description:
       '신라면세점 공식 온라인 스토어프론트. 출국 시간 기반 주문 시스템, 시간 한정 세일, 브랜드 큐레이션, 회원 적립 등 면세 쇼핑에 특화된 기능을 대규모 트래픽에 맞춰 설계·구축했습니다.',
-    tech: ['Java', 'Cloudflare'],
+    tech: ['jQuery', 'Cloudflare'],
     accent: 'bg-brand-secondary',
     image: '/portfolio/shilladfs.png',
     link: 'https://www.shilladfs.com/estore/kr/ko/?uiel=Desktop',
