@@ -39,6 +39,16 @@ const projects: Project[] = [
     image: '/portfolio/seojincam.jpg',
     link: 'https://wh.seojincam.com',
   },
+  {
+    tag: '앱개발',
+    title: '계란통 — 계란 농장 관리 앱',
+    description:
+      '계란 농가를 위한 생산·판매 통합 관리 앱. 수량 처리, 판매 이력, 재고 현황 등 농장 운영에 필요한 기능을 직관적인 UI로 제공합니다. Android·iOS 동시 출시.',
+    tech: ['Android', 'iOS', '크로스플랫폼'],
+    accent: 'bg-brand-secondary',
+    image: '/portfolio/egg-master.jpg',
+    link: 'https://play.google.com/store/apps/details?id=com.lovizu.egg.master.egg_master&hl=ko',
+  },
 ];
 
 export default function Portfolio() {
