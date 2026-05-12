@@ -20,24 +20,22 @@ const projects: Project[] = [
     link: 'https://www.ddaji.com/item',
   },
   {
-    tag: '이커머스',
-    title: '신라면세점 — DFS 통합 커머스',
+    tag: 'B2B 웹사이트',
+    title: '티씨팩 — 포장자동화 전문기업',
     description:
-      '신라면세점 공식 온라인 스토어프론트. 출국 시간 기반 주문 시스템, 시간 한정 세일, 브랜드 큐레이션, 회원 적립 등 면세 쇼핑에 특화된 기능을 대규모 트래픽에 맞춰 설계·구축했습니다.',
-    tech: ['jQuery', 'Cloudflare'],
+      '포장자동화·공장자동화 전문 제조사 공식 웹사이트. 스틱·로터리·버티컬 포장기계 등 제품 카탈로그를 직관적으로 탐색하고, 네이버 스토어 연동과 AS 안내까지 원스톱으로 제공합니다.',
+    tech: ['웹사이트', '제품 카탈로그', 'CDN'],
     accent: 'bg-brand-secondary',
-    image: '/portfolio/shilladfs.png',
-    link: 'https://www.shilladfs.com/estore/kr/ko/?uiel=Desktop',
+    link: 'https://tcpack.co.kr/',
   },
   {
-    tag: '글로벌 사이트',
-    title: 'Shilla DFS — 다국어 스토어프론트',
+    tag: '관리 플랫폼',
+    title: '서진캠 — 웨어하우스 관리 시스템',
     description:
-      '한국어 본 사이트와 상품·재고 데이터를 공유하는 영어·일본어·중국어 스토어프론트. 환율 표시, 지역별 프로모션, 출국지 기반 배송 흐름까지 통합 운영합니다.',
-    tech: ['i18n', '디자인 시스템', '글로벌 결제', '성능 최적화'],
+      '서진캠(SECO)의 창고 운영과 재고 관리를 위한 전용 웹 플랫폼. 사용자 인증과 대시보드 기반으로 데이터를 실시간으로 관리합니다.',
+    tech: ['웹 앱', '관리 시스템', '인증'],
     accent: 'bg-brand-accent',
-    image: '/portfolio/shilladfs-ja.jpg',
-    link: 'https://www.shilladfs.com/estore/kr/ja',
+    link: 'https://wh.seojincam.com',
   },
 ];
 
