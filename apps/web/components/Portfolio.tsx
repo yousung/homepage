@@ -49,6 +49,16 @@ const projects: Project[] = [
     image: '/portfolio/egg-master.jpg',
     link: 'https://play.google.com/store/apps/details?id=com.lovizu.egg.master.egg_master&hl=ko',
   },
+  {
+    tag: '앱개발',
+    title: '아기소리 (딸랑이) — 유아 사운드 앱',
+    description:
+      '영아를 위한 딸랑이·백색소음 사운드 앱. 다양한 소리로 아이를 달래고 수면을 유도합니다. Android·iOS 동시 출시.',
+    tech: ['Android', 'iOS', '크로스플랫폼'],
+    accent: 'bg-brand-accent',
+    image: '/portfolio/lovizu-baby.jpg',
+    link: 'https://play.google.com/store/apps/details?id=com.lovizu.baby&hl=ko',
+  },
 ];
 
 export default function Portfolio() {
