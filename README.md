@@ -32,6 +32,15 @@ Lovizu는 개발, UI/UX 디자인, IT 컨설팅을 직접 수행하는 IT 솔루
 ## 개발자용 안내 (For Developers)
 
 - 스택: Nx monorepo — Next.js 정적 사이트
+- 필수 버전: Node `20.19.0`, pnpm `9.0.0`
+- 버전 맞추기
+
+```bash
+nvm use
+corepack enable
+corepack prepare pnpm@9.0.0 --activate
+```
+
 - 로컬 실행
 
 ```bash
