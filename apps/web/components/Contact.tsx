@@ -1,16 +1,7 @@
-'use client';
-
-import { FormEvent, useState } from 'react';
 import { getContactEmail } from '@/lib/contactEmail';
 
 export default function Contact() {
   const contactEmail = getContactEmail();
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSubmitted(true);
-  };
 
   return (
     <section id="contact" className="bg-brand-bg py-24">
@@ -55,67 +46,6 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-
-            <form className="mx-auto mt-10 max-w-md space-y-4 text-left" onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor="name" className="mb-1 block text-xs text-brand-text-muted">
-                  이름
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  className="w-full rounded-lg border border-brand-border bg-white px-4 py-3 text-sm text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-accent"
-                  placeholder="홍길동"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="mb-1 block text-xs text-brand-text-muted">
-                  이메일
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  className="w-full rounded-lg border border-brand-border bg-white px-4 py-3 text-sm text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-accent"
-                  placeholder="name@example.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="mb-1 block text-xs text-brand-text-muted">
-                  문의 내용
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={4}
-                  className="w-full rounded-lg border border-brand-border bg-white px-4 py-3 text-sm text-brand-text focus:outline-none focus:ring-2 focus:ring-brand-accent"
-                  placeholder="프로젝트 개요를 간단히 알려주세요."
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full rounded-lg bg-brand-accent px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-accent-hover"
-              >
-                문의 보내기
-              </button>
-              <p className="text-xs leading-relaxed text-brand-text-muted">
-                문의를 제출하면 이름, 이메일, 문의 내용이 응대 목적으로 처리될 수 있습니다. 자세한
-                내용은{' '}
-                <a href="/privacy-policy" className="text-brand-accent underline">
-                  개인정보처리방침
-                </a>
-                에서 확인하실 수 있습니다.
-              </p>
-              {submitted && (
-                <p role="status" className="text-sm text-brand-primary">
-                  문의가 접수되었습니다. 24시간 내로 답변드리겠습니다.
-                </p>
-              )}
-            </form>
           </div>
         </div>
       </div>
