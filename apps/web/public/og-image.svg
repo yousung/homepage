@@ -1,0 +1,22 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#101828"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1036" cy="112" r="180" fill="#FF7A59" fill-opacity="0.18"/>
+  <circle cx="176" cy="536" r="220" fill="#22C55E" fill-opacity="0.14"/>
+  <circle cx="948" cy="486" r="120" fill="#FACC15" fill-opacity="0.14"/>
+  <rect x="94" y="88" width="228" height="52" rx="26" fill="white" fill-opacity="0.08"/>
+  <circle cx="128" cy="114" r="8" fill="#FACC15"/>
+  <text x="152" y="122" fill="white" fill-opacity="0.9" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="24" font-weight="600">IT 솔루션 파트너</text>
+  <text x="94" y="262" fill="white" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="78" font-weight="800">비즈니스 성장을 위한</text>
+  <text x="94" y="350" fill="white" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="78" font-weight="800">IT 솔루션 파트너</text>
+  <text x="94" y="426" fill="white" fill-opacity="0.84" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="28" font-weight="500">Lovizu는 개발, UI/UX 디자인, IT 컨설팅을 직접 수행하는 팀입니다.</text>
+  <text x="94" y="468" fill="white" fill-opacity="0.84" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="28" font-weight="500">비즈니스 문제를 먼저 파악하고 기술적 방향을 제안합니다.</text>
+  <rect x="94" y="514" width="208" height="64" rx="20" fill="#FF7A59"/>
+  <text x="198" y="555" text-anchor="middle" fill="white" font-family="Pretendard, Apple SD Gothic Neo, sans-serif" font-size="26" font-weight="700">Lovizu</text>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#1F2937"/>
+    </linearGradient>
+  </defs>
+</svg>
