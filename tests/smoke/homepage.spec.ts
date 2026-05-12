@@ -5,10 +5,12 @@ test('홈페이지 렌더링/핵심 링크/문의 폼 상호작용 스모크', a
 
   await expect(page.getByRole('link', { name: 'Lovizu' }).first()).toBeVisible();
   await expect(page.getByRole('heading', { name: /비즈니스 성장을 위한/ })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'help@lovizu.com' }).first()).toBeVisible();
 
-  await page.getByRole('link', { name: '개인정보처리방침' }).click();
-  await expect(page).toHaveURL(/\/privacy\/?$/);
+  await page.getByRole('contentinfo').getByRole('link', { name: '개인정보처리방침' }).click();
+  await expect(page).toHaveURL(/\/privacy-policy\/?$/);
   await expect(page.getByRole('heading', { name: '개인정보처리방침' })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'help@lovizu.com' })).toBeVisible();
 
   await page.goto('/');
   await page.getByRole('link', { name: '이용약관' }).click();

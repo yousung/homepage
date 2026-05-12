@@ -37,13 +37,13 @@ jobs:
         run: pnpm test
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH || '' }}
-          NEXT_PUBLIC_CONTACT_EMAIL: support@lovizu.com
+          NEXT_PUBLIC_CONTACT_EMAIL: help@lovizu.com
 
       - name: Build
         run: pnpm build
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH || '' }}
-          NEXT_PUBLIC_CONTACT_EMAIL: support@lovizu.com
+          NEXT_PUBLIC_CONTACT_EMAIL: help@lovizu.com
 
       - name: Verify static export artifact
         run: |

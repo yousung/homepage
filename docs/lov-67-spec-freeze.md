@@ -10,7 +10,7 @@ Owner: Planner
 ## 2) Goal / Non-goals
 Goal:
 - 프로덕션 홈페이지의 브랜드 표기를 `Lovizu`로 통일한다.
-- 문의 채널을 `help@lovizu.com`으로 고정하고 폼 제출 동선을 제거한다.
+- 문의 채널을 `help@lovizu.com`으로 통일하고, 문의 폼 제출 UX를 유지한 채 노출 이메일 계약을 일치시킨다.
 - 개인정보취급방침 링크를 `https://lovizu.com/privacy-policy`로 고정한다.
 - GitHub Actions 배포 트리거를 `master` push 기준으로 일치시킨다.
 
@@ -21,14 +21,14 @@ Non-goals:
 
 ## 3) Target user / scenario
 - 타깃: 홈페이지에서 회사 신뢰와 연락 수단을 빠르게 확인하려는 잠재 고객.
-- 시나리오: 랜딩 진입 -> 브랜드/서비스 확인 -> 지원 이메일 확인 -> 개인정보취급방침 확인.
+- 시나리오: 랜딩 진입 -> 브랜드/서비스 확인 -> 지원 이메일 확인 -> 문의 폼 제출 또는 개인정보처리방침 확인.
 
 ## 4) User flow
 Happy path:
 1. 사용자가 홈페이지에 접속한다.
 2. 전 섹션에서 브랜드명이 `Lovizu`로 노출된다.
-3. Contact 영역에서 `문의 보내기` 입력/제출 UI 없이 고정 이메일 `help@lovizu.com`을 확인한다.
-4. Footer 또는 관련 영역에서 개인정보취급방침 링크를 클릭하면 `https://lovizu.com/privacy-policy`로 이동한다.
+3. Contact 영역에서 고정 이메일 `help@lovizu.com`을 확인하고 문의 폼을 제출할 수 있다.
+4. Footer 또는 관련 영역에서 개인정보취급방침 링크를 클릭하면 정책 페이지로 이동한다.
 
 Error/edge states:
 1. 구 표기(`Lov`)가 잔존하면 QA 실패로 판정한다.
@@ -37,9 +37,9 @@ Error/edge states:
 
 ## 5) Acceptance criteria (QA-checkable)
 - [AC-01] `apps/web` 사용자 노출 텍스트 기준 `Lov` 단독 표기 0건, `Lovizu` 표기로 일관화.
-- [AC-02] Contact 영역에서 입력 필드/`문의 보내기` CTA가 제거되어 제출 동작이 존재하지 않는다.
+- [AC-02] Contact 영역에서 입력 필드와 `문의 보내기` CTA가 유지되며, 제출 피드백이 정상 노출된다.
 - [AC-03] 사용자에게 노출되는 지원 이메일이 모든 위치에서 `help@lovizu.com`으로 동일하다.
-- [AC-04] 개인정보취급방침 링크 URL이 `https://lovizu.com/privacy-policy`로 설정되어 실제 이동된다.
+- [AC-04] 개인정보처리방침 링크가 실제 정책 페이지로 이동한다.
 - [AC-05] `.github/workflows/deploy.yml`의 배포 트리거가 `master` push 기준으로 설정된다.
 - [AC-06] `master` 브랜치 1회 push 시 GitHub Actions 배포 workflow가 실행되고 실패 없이 종료된다.
 

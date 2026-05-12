@@ -102,6 +102,14 @@ export default function Contact() {
               >
                 문의 보내기
               </button>
+              <p className="text-xs leading-relaxed text-brand-text-muted">
+                문의를 제출하면 이름, 이메일, 문의 내용이 응대 목적으로 처리될 수 있습니다. 자세한
+                내용은{' '}
+                <a href="/privacy-policy" className="text-brand-accent underline">
+                  개인정보처리방침
+                </a>
+                에서 확인하실 수 있습니다.
+              </p>
               {submitted && (
                 <p role="status" className="text-sm text-brand-primary">
                   문의가 접수되었습니다. 24시간 내로 답변드리겠습니다.

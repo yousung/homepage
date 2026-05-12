@@ -21,7 +21,7 @@ export default function Footer() {
               {contactEmail}
             </a>
             <div className="flex items-center gap-3 text-xs text-white/60">
-              <a href="/privacy" className="transition-colors hover:text-white">
+              <a href="/privacy-policy" className="transition-colors hover:text-white">
                 개인정보처리방침
               </a>
               <span aria-hidden="true">|</span>
