@@ -12,6 +12,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      OBS_ROOT: qa-artifacts/run-observability/${{ github.run_id }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,26 +30,56 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          set -o pipefail
+          mkdir -p "$OBS_ROOT/logs"
+          pnpm install --frozen-lockfile |& tee "$OBS_ROOT/logs/01-install-dependencies.log"
 
       - name: Install Playwright browser
-        run: pnpm exec playwright install --with-deps chromium
+        run: |
+          set -o pipefail
+          mkdir -p "$OBS_ROOT/logs"
+          pnpm exec playwright install --with-deps chromium |& tee "$OBS_ROOT/logs/02-install-playwright-browser.log"
 
       - name: Smoke test
-        run: pnpm test
+        run: |
+          set -o pipefail
+          mkdir -p "$OBS_ROOT/logs"
+          pnpm test |& tee "$OBS_ROOT/logs/03-smoke-test.log"
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH || '' }}
           NEXT_PUBLIC_CONTACT_EMAIL: help@lovizu.com
 
       - name: Build
-        run: pnpm build
+        run: |
+          set -o pipefail
+          mkdir -p "$OBS_ROOT/logs"
+          pnpm build |& tee "$OBS_ROOT/logs/04-build.log"
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ vars.NEXT_PUBLIC_BASE_PATH || '' }}
           NEXT_PUBLIC_CONTACT_EMAIL: help@lovizu.com
 
       - name: Verify static export artifact
         run: |
-          test -d apps/web/out || { echo "Missing apps/web/out"; exit 1; }
-          test -f apps/web/out/index.html || { echo "Missing apps/web/out/index.html"; exit 1; }
-          echo "Export root files:"
-          ls -la apps/web/out | sed -n '1,40p'
+          set -o pipefail
+          mkdir -p "$OBS_ROOT/logs"
+          {
+            test -d apps/web/out || { echo "Missing apps/web/out"; exit 1; }
+            test -f apps/web/out/index.html || { echo "Missing apps/web/out/index.html"; exit 1; }
+            echo "Export root files:"
+            ls -la apps/web/out | sed -n '1,40p'
+          } |& tee "$OBS_ROOT/logs/05-verify-static-export-artifact.log"
+
+      - name: Finalize run observability artifact
+        if: always()
+        run: ./scripts/collect-run-observability.sh "$OBS_ROOT"
+        env:
+          WORKFLOW_JOB_STATUS: ${{ job.status }}
+
+      - name: Upload run observability artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-observability-pr-build-${{ github.run_id }}
+          path: ${{ env.OBS_ROOT }}
+          if-no-files-found: error
