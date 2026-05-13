@@ -213,10 +213,12 @@ jobs:
       - name: Checkout observability helpers
         if: always()
         uses: actions/checkout@v4
+        with:
+          path: .paperclip-observability-helpers
 
       - name: Finalize deploy observability artifact
         if: always()
-        run: ./scripts/collect-run-observability.sh "$OBS_ROOT" ""
+        run: ./.paperclip-observability-helpers/scripts/collect-run-observability.sh "$OBS_ROOT" ""
         env:
           WORKFLOW_JOB_STATUS: ${{ job.status }}
 
