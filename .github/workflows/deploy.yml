@@ -210,6 +210,10 @@ jobs:
           mkdir -p "$OBS_ROOT/step-logs"
           echo "Pages URL: ${{ steps.deployment.outputs.page_url }}" |& tee "$OBS_ROOT/step-logs/02-deployment-summary.log"
 
+      - name: Checkout observability helpers
+        if: always()
+        uses: actions/checkout@v4
+
       - name: Finalize deploy observability artifact
         if: always()
         run: ./scripts/collect-run-observability.sh "$OBS_ROOT" ""
