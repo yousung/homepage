@@ -21,6 +21,25 @@ jobs:
     env:
       OBS_ROOT: qa-artifacts/run-observability/${{ github.run_id }}
     steps:
+      - name: Initialize run observability
+        id: observability_init
+        run: |
+          mkdir -p "$OBS_ROOT/step-logs"
+          cat <<EOF > "$OBS_ROOT/step-logs/00-bootstrap.log"
+          step=Initialize run observability
+          workflow=${{ github.workflow }}
+          job=build
+          run_id=${{ github.run_id }}
+          run_attempt=${{ github.run_attempt }}
+          sha=${{ github.sha }}
+          ref=${{ github.ref }}
+          actor=${{ github.actor }}
+          repo=${{ github.repository }}
+          event_name=${{ github.event_name }}
+          triggered_by=${{ github.event_name }}
+          started_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          EOF
+
       - name: Checkout
         id: checkout
         uses: actions/checkout@v4
@@ -151,6 +170,24 @@ jobs:
     env:
       OBS_ROOT: qa-artifacts/run-observability/${{ github.run_id }}
     steps:
+      - name: Initialize deploy run observability
+        id: deploy_observability_init
+        run: |
+          mkdir -p "$OBS_ROOT/step-logs"
+          cat <<EOF > "$OBS_ROOT/step-logs/00-bootstrap.log"
+          step=Initialize deploy run observability
+          workflow=${{ github.workflow }}
+          job=deploy
+          run_id=${{ github.run_id }}
+          run_attempt=${{ github.run_attempt }}
+          sha=${{ github.sha }}
+          ref=${{ github.ref }}
+          actor=${{ github.actor }}
+          repo=${{ github.repository }}
+          event_name=${{ github.event_name }}
+          started_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          EOF
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
