@@ -4,8 +4,8 @@ set -euo pipefail
 obs_root="${1:?usage: collect-run-observability.sh <observability-root> [static-export-path]}"
 static_export_path="${2:-apps/web/out/index.html}"
 
-logs_dir="$obs_root/logs"
-tails_dir="$obs_root/tails"
+logs_dir="$obs_root/step-logs"
+tails_dir="$obs_root/tail-logs"
 mkdir -p "$logs_dir" "$tails_dir"
 
 shopt -s nullglob
@@ -15,11 +15,15 @@ for log_file in "${log_files[@]}"; do
 done
 shopt -u nullglob
 
-fingerprint_file="$obs_root/fingerprint-sha256.txt"
+fingerprint_file="$obs_root/fingerprint.txt"
 : > "$fingerprint_file"
 if find "$logs_dir" "$tails_dir" -type f | grep -q .; then
   while IFS= read -r file; do
-    shasum -a 256 "$file" >> "$fingerprint_file"
+    if command -v sha256sum >/dev/null 2>&1; then
+      sha256sum "$file" >> "$fingerprint_file"
+    else
+      shasum -a 256 "$file" >> "$fingerprint_file"
+    fi
   done < <(find "$logs_dir" "$tails_dir" -type f | sort)
 fi
 
@@ -41,8 +45,9 @@ const path = require('path');
 
 const obsRoot = process.env.OBS_ROOT;
 const metaPath = path.join(obsRoot, 'meta.json');
-const logDir = path.join(obsRoot, 'logs');
-const tailDir = path.join(obsRoot, 'tails');
+const classificationPath = path.join(obsRoot, 'classification.json');
+const logDir = path.join(obsRoot, 'step-logs');
+const tailDir = path.join(obsRoot, 'tail-logs');
 const listFiles = (dir) =>
   fs.existsSync(dir)
     ? fs.readdirSync(dir).filter((entry) => fs.statSync(path.join(dir, entry)).isFile()).sort()
@@ -53,6 +58,15 @@ const staticExportVerified = toBool(process.env.STATIC_EXPORT_VERIFIED || 'false
 const failureObserved = jobStatus !== 'success';
 const classification = failureObserved ? 'actionable_failure' : 'clean_pass';
 const falsePositiveRisk = failureObserved && staticExportVerified ? 'medium' : 'low';
+const classificationSummary = {
+  classification,
+  falsePositiveRisk,
+  reason: failureObserved
+    ? staticExportVerified
+      ? 'failure_with_verified_static_export_requires_human_review'
+      : 'failure_backed_by_missing_or_failed_artifacts'
+    : 'all_required_steps_completed',
+};
 
 const meta = {
   generatedAt: new Date().toISOString(),
@@ -78,7 +92,8 @@ const meta = {
     tailFiles: listFiles(tailDir),
     stepLogCount: Number(process.env.STEP_LOG_COUNT || '0'),
     tailLogCount: Number(process.env.TAIL_LOG_COUNT || '0'),
-    fingerprintFile: 'fingerprint-sha256.txt',
+    fingerprintFile: 'fingerprint.txt',
+    classificationFile: 'classification.json',
   },
   falsePositiveMitigation: {
     artifactUploadAlways: true,
@@ -86,9 +101,10 @@ const meta = {
     staticExportVerified,
     failureSignalBackedByLogs: Number(process.env.STEP_LOG_COUNT || '0') > 0,
     requiresHumanReview: failureObserved,
-    falsePositiveRisk,
+    falsePositiveRisk: classificationSummary.falsePositiveRisk,
   },
 };
 
 fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2) + '\n');
+fs.writeFileSync(classificationPath, JSON.stringify(classificationSummary, null, 2) + '\n');
 NODE
