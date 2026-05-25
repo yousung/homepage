@@ -11,7 +11,7 @@ const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Lovizu',
-  url: 'https://yousung.github.io/homepage',
+  url: 'https://www.lovizu.com',
   description: '깊이 있는 IT 솔루션으로 고객의 성장을 함께 그려가는 파트너',
   contactPoint: {
     '@type': 'ContactPoint',
