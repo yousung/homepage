@@ -1,11 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { THELC_APP_INTRO_URL, THELC_PRIVACY_URL } from '@/lib/thelcApp';
 
 const links = [
   { label: '소개', href: '#about' },
   { label: '서비스', href: '#services' },
   { label: '포트폴리오', href: '#portfolio' },
+  { label: '앱 소개', href: THELC_APP_INTRO_URL, external: true },
+  { label: '개인정보', href: THELC_PRIVACY_URL, external: true },
   { label: '연락하기', href: '#contact' },
 ];
 
@@ -13,17 +16,25 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-brand-border bg-white/90 shadow-sm backdrop-blur-sm">
+    <nav
+      aria-label="주요 메뉴"
+      className="fixed left-0 right-0 top-0 z-50 border-b border-brand-border bg-white/90 shadow-sm backdrop-blur-sm"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <a href="#" className="text-2xl font-bold tracking-tight text-brand-primary">
             Lovizu
           </a>
 
-          <ul className="hidden items-center gap-8 md:flex">
+          <ul className="hidden items-center gap-5 md:flex lg:gap-6 xl:gap-8">
             {links.map((link) => (
               <li key={link.href}>
-                <a href={link.href} className="text-sm font-medium text-brand-text-muted transition-colors hover:text-brand-primary">
+                <a
+                  href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noreferrer noopener' : undefined}
+                  className="text-sm font-medium text-brand-text-muted transition-colors hover:text-brand-primary"
+                >
                   {link.label}
                 </a>
               </li>
@@ -62,6 +73,8 @@ export default function Nav() {
               <li key={link.href}>
                 <a
                   href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noreferrer noopener' : undefined}
                   className="block rounded-lg px-3 py-2 text-sm font-medium text-brand-text-muted hover:bg-brand-bg"
                   onClick={() => setOpen(false)}
                 >

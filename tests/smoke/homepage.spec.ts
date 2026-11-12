@@ -5,6 +5,17 @@ test('홈페이지 렌더링/핵심 링크/연락 섹션 스모크', async ({ pa
 
   await expect(page.getByRole('link', { name: 'Lovizu' }).first()).toBeVisible();
   await expect(page.getByRole('heading', { name: /비즈니스 성장을 위한/ })).toBeVisible();
+
+  const primaryNav = page.getByRole('navigation', { name: '주요 메뉴' });
+  await expect(primaryNav.getByRole('link', { name: '앱 소개' })).toHaveAttribute(
+    'href',
+    'https://lovizu.tistory.com/pages/주님의교회-YouTube-자동화-앱-thelc-youtube-desktop',
+  );
+  await expect(primaryNav.getByRole('link', { name: '개인정보' })).toHaveAttribute(
+    'href',
+    'https://private-document.lovizu.com/',
+  );
+
   await expect(page.getByRole('heading', { level: 3, name: 'thelc-youtube-desktop' })).toBeVisible();
   const thelcPrivacyLink = page.getByRole('article').getByRole('link', { name: '개인정보처리방침' });
   await expect(thelcPrivacyLink).toHaveAttribute('href', 'https://private-document.lovizu.com/');

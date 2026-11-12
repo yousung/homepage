@@ -1,3 +1,5 @@
+import { THELC_PRIVACY_URL } from '@/lib/thelcApp';
+
 type Project = {
   tag: string;
   title: string;
@@ -160,7 +162,7 @@ export default function Portfolio() {
               </p>
             </div>
             <a
-              href="https://private-document.lovizu.com/"
+              href={THELC_PRIVACY_URL}
               target="_blank"
               rel="noreferrer noopener"
               className="inline-flex shrink-0 items-center justify-center rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2"
