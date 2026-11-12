@@ -5,6 +5,9 @@ test('홈페이지 렌더링/핵심 링크/연락 섹션 스모크', async ({ pa
 
   await expect(page.getByRole('link', { name: 'Lovizu' }).first()).toBeVisible();
   await expect(page.getByRole('heading', { name: /비즈니스 성장을 위한/ })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 3, name: 'thelc-youtube-desktop' })).toBeVisible();
+  const thelcPrivacyLink = page.getByRole('article').getByRole('link', { name: '개인정보처리방침' });
+  await expect(thelcPrivacyLink).toHaveAttribute('href', 'https://private-document.lovizu.com/');
 
   await page.getByRole('contentinfo').getByRole('link', { name: '개인정보처리방침' }).click();
   await expect(page).toHaveURL(/\/privacy-policy\/?$/);

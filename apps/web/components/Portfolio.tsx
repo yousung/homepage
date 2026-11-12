@@ -146,6 +146,29 @@ export default function Portfolio() {
             );
           })}
         </div>
+
+        <article className="mt-10 rounded-2xl border border-brand-border bg-brand-bg p-6 sm:p-8" aria-labelledby="thelc-oauth-title">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl">
+              <p className="mb-2 text-sm font-semibold text-brand-accent">YouTube OAuth 데스크톱 도구</p>
+              <h3 id="thelc-oauth-title" className="text-2xl font-bold text-brand-text">
+                thelc-youtube-desktop
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-brand-text-muted sm:text-base">
+                주님의교회 YouTube 채널 운영자가 승인한 범위에서 채널을 확인하고, 사용자가 지정한 동영상과
+                메타데이터를 업로드하며, 업로드 처리 상태와 재생목록 반영 여부를 확인하는 운영용 자동화 도구입니다.
+              </p>
+            </div>
+            <a
+              href="https://private-document.lovizu.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex shrink-0 items-center justify-center rounded-xl bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-secondary focus:outline-none focus:ring-2 focus:ring-brand-accent focus:ring-offset-2"
+            >
+              개인정보처리방침
+            </a>
+          </div>
+        </article>
       </div>
     </section>
   );
