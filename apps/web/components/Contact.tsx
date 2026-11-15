@@ -1,4 +1,6 @@
 import { getContactEmail } from '@/lib/contactEmail';
+import { WEB3FORMS_ACCESS_KEY } from '@/lib/contactForm';
+import ContactForm from '@/components/ContactForm';
 
 export default function Contact() {
   const contactEmail = getContactEmail();
@@ -19,6 +21,12 @@ export default function Contact() {
               <br className="hidden sm:block" />
               Lovizu 팀이 24시간 내로 답변드립니다.
             </p>
+
+            {WEB3FORMS_ACCESS_KEY && (
+              <div className="mb-10">
+                <ContactForm fallbackEmail={contactEmail} />
+              </div>
+            )}
 
             <div className="mx-auto max-w-md space-y-4 text-left">
               <div className="flex items-center gap-4">

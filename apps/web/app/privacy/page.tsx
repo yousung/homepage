@@ -33,12 +33,11 @@ export default function PrivacyPage() {
           <section className="space-y-2">
             <h2 className="text-xl font-semibold text-brand-text">2. 처리하는 개인정보 항목</h2>
             <p>
-              회사는 문의 접수 시 이용자가 직접 입력하는 다음 정보를 처리할 수 있습니다:
-              이름, 이메일 주소, 문의 내용.
+              회사는 홈페이지 문의 양식을 통해 이용자가 직접 입력하는 다음 정보를 처리합니다.
             </p>
             <ul className="list-disc space-y-1 pl-6">
-              <li>필수 항목: 이름, 이메일 주소, 문의 내용</li>
-              <li>선택 항목: 이용자가 문의 본문에 자율적으로 기재한 회사명, 연락처, 프로젝트 정보</li>
+              <li>필수 항목: 문의 유형, 이름, 이메일 주소, 문의 내용</li>
+              <li>선택 항목: 연락처, 회사명, 이용자가 문의 본문에 자율적으로 기재한 프로젝트 정보</li>
             </ul>
           </section>
 
@@ -65,10 +64,29 @@ export default function PrivacyPage() {
           <section className="space-y-2">
             <h2 className="text-xl font-semibold text-brand-text">5. 개인정보 처리위탁</h2>
             <p>
-              회사는 현재 홈페이지 문의 응대를 위해 별도 서버 데이터베이스에 문의 내용을 저장하지
-              않으며, 이용자 개인정보를 별도 외부 업체에 위탁 처리하지 않습니다. 향후 위탁이
-              필요한 경우 관련 법령에 따라 수탁자, 위탁 업무, 보유 기간 등을 사전에 고지하겠습니다.
+              회사는 별도 서버 데이터베이스에 문의 내용을 저장하지 않으며, 문의 양식에 입력된 내용을
+              회사 이메일로 전달하기 위해 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.
             </p>
+            <ul className="list-disc space-y-1 pl-6">
+              <li>수탁자: Web3Forms (https://web3forms.com)</li>
+              <li>위탁 업무: 문의 양식 입력 내용의 수신 및 회사 이메일로의 전송</li>
+              <li>보유 및 이용 기간: 수탁자 서버에 30일간 보관 후 자동 삭제</li>
+            </ul>
+            <p className="pt-2 font-semibold text-brand-text">개인정보의 국외 이전</p>
+            <ul className="list-disc space-y-1 pl-6">
+              <li>이전받는 자: Web3Forms (연락처: support@web3forms.com)</li>
+              <li>
+                이전되는 국가: 인도(운영 국가) 및 수탁자가 이용하는 인프라(Amazon Web Services,
+                Cloudflare, Hetzner)의 데이터 처리 국가
+              </li>
+              <li>이전 항목: 위 2항의 문의 양식 입력 항목</li>
+              <li>이전 시기 및 방법: 이용자가 문의 양식을 제출하는 시점에 암호화된 네트워크(HTTPS)로 전송</li>
+              <li>이용 목적 및 보유 기간: 문의 내용의 이메일 전송, 30일간 보관 후 자동 삭제</li>
+              <li>
+                거부 방법 및 효과: 국외 이전을 원하지 않는 경우 문의 양식 대신 이메일로 직접 문의하실 수
+                있으며, 이 경우 문의 응대에 불이익은 없습니다.
+              </li>
+            </ul>
           </section>
 
           <section className="space-y-2">
@@ -129,7 +147,7 @@ export default function PrivacyPage() {
             </p>
           </section>
 
-          <p className="text-sm text-brand-text-muted">시행일: 2026년 5월 12일</p>
+          <p className="text-sm text-brand-text-muted">시행일: 2026년 11월 15일</p>
         </div>
       </section>
     </main>
