@@ -11,18 +11,18 @@ type Plan = {
 const plans: Plan[] = [
   {
     name: '호스팅',
-    summary: '홈페이지 서버 임대',
+    summary: '서버 임대 + SSL',
     price: '30,000',
     priceNote: '월구독 · 연 360,000원',
     annual: { price: '300,000', note: '연구독 · 2개월 무료' },
-    features: ['홈페이지 서버 임대'],
+    features: ['서버 임대', 'SSL 인증서'],
   },
   {
     name: '케어',
-    summary: '서버 임대 + 관리 + 간단한 변경',
+    summary: '호스팅 + 서버 관리 + 간단한 변경',
     price: '100,000',
     priceNote: '월구독 · 연 1,200,000원',
-    features: ['홈페이지 서버 임대', '서버 관리', '간단한 변경사항 월 3회 무료'],
+    features: ['호스팅 플랜 전체 포함', '서버 관리 (보안 업데이트 · 월간 점검)', '간단한 변경사항 월 3회 무료'],
     highlighted: true,
   },
 ];
@@ -109,7 +109,8 @@ export default function Pricing() {
         </div>
 
         <p className="mt-8 text-center text-xs text-brand-text-muted">
-          모든 금액은 부가세 별도입니다. 변경 범위 및 세부 조건은 상담 시 안내드립니다.
+          Lovizu가 제작한 홈페이지를 대상으로 합니다. 모든 금액은 부가세 별도이며, 변경 범위 및 세부 조건은
+          상담 시 안내드립니다.
         </p>
       </div>
     </section>

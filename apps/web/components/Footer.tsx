@@ -11,7 +11,12 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div>
-            <span className="text-2xl font-bold tracking-tight text-white">Lovizu</span>
+            <span className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white">
+              {/* 어두운 배경이라 밝은 타일 버전 사용 */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/icon-192.png" alt="" aria-hidden="true" width={32} height={32} className="h-8 w-8" />
+              Lovizu
+            </span>
             <p className="mt-1 text-sm">기술에 진심인 팀</p>
             <p className="mt-1 text-xs text-white/65">개발 · UI/UX · IT 컨설팅</p>
           </div>

@@ -22,7 +22,9 @@ export default function Nav() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <a href="#" className="text-2xl font-bold tracking-tight text-brand-primary">
+          <a href="#" className="flex items-center gap-2 text-2xl font-bold tracking-tight text-brand-primary">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/lovizu-mark.svg" alt="" aria-hidden="true" width={32} height={32} className="h-8 w-8" />
             Lovizu
           </a>
 
