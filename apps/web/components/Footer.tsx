@@ -38,9 +38,9 @@ export default function Footer() {
           </div>
 
           <nav aria-label="Footer navigation">
-            <ul className="flex gap-6 text-sm">
-              {['소개', '서비스', '포트폴리오', '연락하기'].map((label, i) => {
-                const hrefs = ['#about', '#services', '#portfolio', '#contact'];
+            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+              {['소개', '서비스', '포트폴리오', '요금제', '연락하기'].map((label, i) => {
+                const hrefs = ['#about', '#services', '#portfolio', '#pricing', '#contact'];
                 return (
                   <li key={label}>
                     <a href={hrefs[i]} className="transition-colors hover:text-white">
