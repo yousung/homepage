@@ -3,3 +3,8 @@ dist/
 .env
 .nx/
 *.js.map
+
+# Next.js static export output (built in CI)
+apps/web/out/
+apps/web/tsconfig.tsbuildinfo
+test-results/
