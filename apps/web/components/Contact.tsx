@@ -15,7 +15,9 @@ export default function Contact() {
               함께 시작해볼까요?
             </h2>
             <p className="mb-10 text-lg leading-relaxed text-brand-text-muted">
-              어떤 아이디어든 환영합니다. 간단한 문의부터 시작해보세요. Lovizu 팀이 24시간 내로 답변드립니다.
+              어떤 아이디어든 환영합니다. 간단한 문의부터 시작해보세요.{' '}
+              <br className="hidden sm:block" />
+              Lovizu 팀이 24시간 내로 답변드립니다.
             </p>
 
             <div className="mx-auto max-w-md space-y-4 text-left">
