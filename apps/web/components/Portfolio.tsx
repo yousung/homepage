@@ -149,7 +149,8 @@ export default function Portfolio() {
           })}
         </div>
 
-        <article className="mt-10 rounded-2xl border border-brand-border bg-brand-bg p-6 sm:p-8" aria-labelledby="thelc-oauth-title">
+        {/* 화면에서는 숨김(sr-only) — DOM·크롤러·OAuth 심사용으로 유지 */}
+        <article className="sr-only" aria-labelledby="thelc-oauth-title">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             <div className="max-w-3xl">
               <p className="mb-2 text-sm font-semibold text-brand-accent">YouTube OAuth 데스크톱 도구</p>

@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
-import { THELC_APP_INTRO_URL, THELC_PRIVACY_URL } from '@/lib/thelcApp';
+import { THELC_PRIVACY_URL } from '@/lib/thelcApp';
 
-const links = [
+const links: { label: string; href: string; external?: boolean }[] = [
   { label: '소개', href: '#about' },
   { label: '서비스', href: '#services' },
   { label: '포트폴리오', href: '#portfolio' },
-  { label: '앱 소개', href: THELC_APP_INTRO_URL, external: true },
+  { label: '요금제', href: '#pricing' },
   { label: '개인정보', href: THELC_PRIVACY_URL, external: true },
   { label: '연락하기', href: '#contact' },
 ];

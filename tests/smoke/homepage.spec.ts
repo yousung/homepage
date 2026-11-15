@@ -7,16 +7,19 @@ test('홈페이지 렌더링/핵심 링크/연락 섹션 스모크', async ({ pa
   await expect(page.getByRole('heading', { name: /비즈니스 성장을 위한/ })).toBeVisible();
 
   const primaryNav = page.getByRole('navigation', { name: '주요 메뉴' });
-  await expect(primaryNav.getByRole('link', { name: '앱 소개' })).toHaveAttribute(
-    'href',
-    'https://lovizu.tistory.com/pages/주님의교회-YouTube-자동화-앱-thelc-youtube-desktop',
-  );
+  await expect(primaryNav.locator('a[href*="tistory.com"]')).toHaveCount(0);
   await expect(primaryNav.getByRole('link', { name: '개인정보' })).toHaveAttribute(
     'href',
     'https://private-document.lovizu.com/',
   );
 
-  await expect(page.getByRole('heading', { level: 3, name: 'thelc-youtube-desktop' })).toBeVisible();
+  const pricing = page.locator('#pricing');
+  await expect(pricing.getByRole('heading', { level: 3, name: '호스팅' })).toBeVisible();
+  await expect(pricing.getByRole('heading', { level: 3, name: '케어' })).toBeVisible();
+  await expect(pricing.getByText('부가세 별도')).toBeVisible();
+
+  // 화면에서는 숨김(sr-only)이지만 DOM에는 존재해야 함
+  await expect(page.getByRole('heading', { level: 3, name: 'thelc-youtube-desktop' })).toBeAttached();
   const thelcPrivacyLink = page.getByRole('article').getByRole('link', { name: '개인정보처리방침' });
   await expect(thelcPrivacyLink).toHaveAttribute('href', 'https://private-document.lovizu.com/');
 
