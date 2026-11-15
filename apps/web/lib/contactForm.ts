@@ -3,6 +3,8 @@ import { z } from 'zod';
 // Web3Forms access key는 클라이언트 노출을 전제로 설계된 공개 키입니다 (수신 이메일에 바인딩).
 export const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim() || '';
 export const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+// Web3Forms 무료 플랜 전용 hCaptcha sitekey (https://docs.web3forms.com — hCaptcha)
+export const WEB3FORMS_HCAPTCHA_SITEKEY = '50b2fe65-b00b-4b9e-ad62-3ba471098be2';
 
 export const INQUIRY_TYPES = ['홈페이지 제작', '호스팅 플랜', '케어 플랜', 'IT 컨설팅', '기타'] as const;
 
@@ -26,9 +28,10 @@ export const contactSchema = z.object({
 
 export type ContactFormValues = z.infer<typeof contactSchema>;
 
-export function buildWeb3FormsPayload(values: ContactFormValues) {
+export function buildWeb3FormsPayload(values: ContactFormValues, captchaToken: string) {
   return {
     access_key: WEB3FORMS_ACCESS_KEY,
+    'h-captcha-response': captchaToken,
     subject: `[Lovizu 문의] ${values.inquiryType} - ${values.name}`,
     from_name: 'Lovizu 홈페이지',
     replyto: values.email,

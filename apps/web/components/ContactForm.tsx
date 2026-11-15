@@ -1,12 +1,14 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 import {
   INQUIRY_TYPES,
   WEB3FORMS_ENDPOINT,
+  WEB3FORMS_HCAPTCHA_SITEKEY,
   buildWeb3FormsPayload,
   contactSchema,
   type ContactFormValues,
@@ -28,6 +30,9 @@ function FieldError({ message }: { message?: string }) {
 
 export default function ContactForm({ fallbackEmail }: { fallbackEmail: string }) {
   const [status, setStatus] = useState<Status>('idle');
+  const [captchaToken, setCaptchaToken] = useState('');
+  const [captchaError, setCaptchaError] = useState('');
+  const captchaRef = useRef<HCaptcha>(null);
   const {
     register,
     handleSubmit,
@@ -38,13 +43,22 @@ export default function ContactForm({ fallbackEmail }: { fallbackEmail: string }
     defaultValues: { inquiryType: undefined, phone: '', company: '', botcheck: '' },
   });
 
+  const resetCaptcha = () => {
+    setCaptchaToken('');
+    captchaRef.current?.resetCaptcha();
+  };
+
   const onSubmit = async (values: ContactFormValues) => {
     setStatus('idle');
+    if (!captchaToken) {
+      setCaptchaError('자동 입력 방지 확인을 완료해주세요.');
+      return;
+    }
     try {
       const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(buildWeb3FormsPayload(values)),
+        body: JSON.stringify(buildWeb3FormsPayload(values, captchaToken)),
       });
       const data = (await res.json().catch(() => null)) as { success?: boolean } | null;
       if (!res.ok || !data?.success) throw new Error('submit failed');
@@ -52,6 +66,9 @@ export default function ContactForm({ fallbackEmail }: { fallbackEmail: string }
       setStatus('success');
     } catch {
       setStatus('error');
+    } finally {
+      // hCaptcha 토큰은 1회용
+      resetCaptcha();
     }
   };
 
@@ -155,6 +172,22 @@ export default function ContactForm({ fallbackEmail }: { fallbackEmail: string }
           </span>
         </label>
         <FieldError message={errors.consent?.message} />
+      </div>
+
+      <div>
+        <HCaptcha
+          ref={captchaRef}
+          sitekey={WEB3FORMS_HCAPTCHA_SITEKEY}
+          reCaptchaCompat={false}
+          languageOverride="ko"
+          onVerify={(token) => {
+            setCaptchaToken(token);
+            setCaptchaError('');
+          }}
+          onExpire={() => setCaptchaToken('')}
+          onError={() => setCaptchaToken('')}
+        />
+        <FieldError message={captchaError} />
       </div>
 
       {status === 'error' && (

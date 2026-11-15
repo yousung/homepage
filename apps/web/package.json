@@ -7,6 +7,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "1.12.0",
     "@homepage/shared": "workspace:*",
     "@hookform/resolvers": "^5.2.2",
     "autoprefixer": "^10.5.0",
