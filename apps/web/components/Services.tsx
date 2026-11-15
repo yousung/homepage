@@ -3,8 +3,8 @@ const services = [
     badge: '개발',
     title: '웹 & 앱 개발',
     description:
-      'React, Next.js, Node.js 기반의 고성능 웹 서비스와 모바일 애플리케이션을 구축합니다. 스케일러블한 아키텍처로 지금의 트래픽은 물론, 성장 이후도 대비합니다.',
-    features: ['Next.js / React', 'Node.js / NestJS', 'AWS / GCP 배포', 'CI/CD 자동화'],
+      'React, Next.js, Node.js는 물론 PHP, Java 기반의 고성능 웹 서비스와 모바일 애플리케이션을 구축합니다. 스케일러블한 아키텍처로 지금의 트래픽은 물론, 성장 이후도 대비합니다.',
+    features: ['Next.js / React', 'Node.js / NestJS', 'PHP / Java', 'AWS / GCP 배포', 'CI/CD 자동화'],
     icon: (
       <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
